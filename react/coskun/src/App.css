@@ -1,0 +1,558 @@
+/* ============================================
+   COSKUN - Authentic 80s Neon Signs
+   ============================================ */
+
+.app {
+  min-height: 100vh;
+  background: #0d0d0d;
+}
+
+/* ============================================
+   HERO SECTION - Main Neon Sign Display
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brick wall background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a1210;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 29px,
+      #0d0908 29px,
+      #0d0908 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      #0d0908 59px,
+      #0d0908 60px
+    );
+  background-size: 60px 30px;
+  opacity: 0.8;
+}
+
+/* Ambient light glow on wall from signs */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(ellipse, rgba(255, 110, 199, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ============================================
+   NEON SIGN COMPONENT STYLES
+   ============================================ */
+
+/* Metal backing plate for signs */
+.neon-sign {
+  position: relative;
+  display: inline-block;
+}
+
+.sign-backing {
+  background: linear-gradient(145deg, #1c1c1c 0%, #0a0a0a 100%);
+  border: 3px solid #2a2a2a;
+  border-radius: 15px;
+  padding: 30px 50px;
+  position: relative;
+  box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.05),
+    0 10px 40px rgba(0,0,0,0.8),
+    0 0 0 1px #111;
+}
+
+/* Corner screws */
+.sign-backing::before,
+.sign-backing::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #555, #1a1a1a);
+  border-radius: 50%;
+  border: 1px solid #333;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.sign-backing::before {
+  top: 15px;
+  left: 15px;
+}
+
+.sign-backing::after {
+  top: 15px;
+  right: 15px;
+}
+
+/* More corner screws via pseudo elements on wrapper */
+.sign-screws-bottom::before,
+.sign-screws-bottom::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #555, #1a1a1a);
+  border-radius: 50%;
+  border: 1px solid #333;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.sign-screws-bottom::before {
+  bottom: 15px;
+  left: 15px;
+}
+
+.sign-screws-bottom::after {
+  bottom: 15px;
+  right: 15px;
+}
+
+/* Main title neon sign */
+.main-sign {
+  font-family: 'Satisfy', cursive;
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 400;
+  letter-spacing: 5px;
+  line-height: 1;
+}
+
+/* Subtitle sign - smaller */
+.subtitle-sign {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  letter-spacing: 3px;
+}
+
+/* ============================================
+   CLASSIC NEON SHAPES - Arrows, Lines, Borders
+   ============================================ */
+
+/* Neon arrow pointing right */
+.neon-arrow {
+  position: relative;
+  width: 100px;
+  height: 40px;
+}
+
+.neon-arrow svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px currentColor)
+          drop-shadow(0 0 10px currentColor)
+          drop-shadow(0 0 20px currentColor)
+          drop-shadow(0 0 40px currentColor);
+}
+
+/* Decorative neon lines */
+.neon-line-horizontal {
+  height: 4px;
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+.neon-line-vertical {
+  width: 4px;
+  background: currentColor;
+  border-radius: 2px;
+  box-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+/* Neon frame border */
+.neon-frame {
+  border: 4px solid;
+  border-radius: 10px;
+  padding: 20px 40px;
+  position: relative;
+}
+
+.neon-frame-pink {
+  border-color: #ff6ec7;
+  box-shadow:
+    0 0 5px #ff6ec7,
+    0 0 10px #ff6ec7,
+    0 0 20px #ff6ec7,
+    0 0 40px #ff6ec7,
+    inset 0 0 10px rgba(255, 110, 199, 0.3),
+    inset 0 0 20px rgba(255, 110, 199, 0.1);
+}
+
+.neon-frame-blue {
+  border-color: #00fff9;
+  box-shadow:
+    0 0 5px #00fff9,
+    0 0 10px #00fff9,
+    0 0 20px #00fff9,
+    0 0 40px #00fff9,
+    inset 0 0 10px rgba(0, 255, 249, 0.3),
+    inset 0 0 20px rgba(0, 255, 249, 0.1);
+}
+
+.neon-frame-red {
+  border-color: #ff1744;
+  box-shadow:
+    0 0 5px #ff1744,
+    0 0 10px #ff1744,
+    0 0 20px #ff1744,
+    0 0 40px #ff1744,
+    inset 0 0 10px rgba(255, 23, 68, 0.3);
+}
+
+/* ============================================
+   OPEN SIGN - Classic Diner Style
+   ============================================ */
+
+.open-sign {
+  position: relative;
+}
+
+.open-sign-frame {
+  background: #111;
+  border: 5px solid #333;
+  border-radius: 20px;
+  padding: 25px 60px;
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.8),
+    0 5px 30px rgba(0,0,0,0.5);
+}
+
+.open-text {
+  font-family: 'Satisfy', cursive;
+  font-size: 4rem;
+  letter-spacing: 8px;
+}
+
+/* ============================================
+   COCKTAILS / BAR SIGNS
+   ============================================ */
+
+.cocktail-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cocktail-glass {
+  font-size: 5rem;
+  filter: drop-shadow(0 0 10px #00fff9)
+          drop-shadow(0 0 20px #00fff9)
+          drop-shadow(0 0 40px #00fff9);
+}
+
+/* ============================================
+   SIGNS GALLERY SECTION
+   ============================================ */
+
+.signs-section {
+  padding: 80px 20px;
+  background: #0a0a0a;
+  position: relative;
+}
+
+.signs-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1a1210;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 29px,
+      #0d0908 29px,
+      #0d0908 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      #0d0908 59px,
+      #0d0908 60px
+    );
+  background-size: 60px 30px;
+  opacity: 0.6;
+}
+
+.signs-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.sign-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+}
+
+/* ============================================
+   INTERACTIVE SIGN CONTROLS
+   ============================================ */
+
+.controls-section {
+  padding: 60px 20px;
+  background: #0d0d0d;
+  text-align: center;
+}
+
+.power-switch {
+  position: relative;
+  width: 80px;
+  height: 120px;
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 3px solid #444;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.1),
+    0 5px 15px rgba(0,0,0,0.5);
+}
+
+.power-switch-toggle {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(180deg, #444 0%, #222 100%);
+  border-radius: 5px;
+  transition: top 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+
+.power-switch.on .power-switch-toggle {
+  top: 55px;
+}
+
+.power-switch-label {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: #666;
+  font-family: sans-serif;
+}
+
+/* ============================================
+   DINER / RESTAURANT SIGN
+   ============================================ */
+
+.diner-sign {
+  position: relative;
+}
+
+.diner-frame {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 6px solid #333;
+  border-radius: 0;
+  padding: 30px 80px;
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+/* ============================================
+   VEGAS STYLE CHASE LIGHTS
+   ============================================ */
+
+.chase-lights {
+  display: flex;
+  gap: 15px;
+  padding: 20px;
+}
+
+.chase-light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor;
+}
+
+@keyframes chase {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.chase-light:nth-child(1) { animation: chase 1s infinite 0s; }
+.chase-light:nth-child(2) { animation: chase 1s infinite 0.1s; }
+.chase-light:nth-child(3) { animation: chase 1s infinite 0.2s; }
+.chase-light:nth-child(4) { animation: chase 1s infinite 0.3s; }
+.chase-light:nth-child(5) { animation: chase 1s infinite 0.4s; }
+.chase-light:nth-child(6) { animation: chase 1s infinite 0.5s; }
+.chase-light:nth-child(7) { animation: chase 1s infinite 0.6s; }
+.chase-light:nth-child(8) { animation: chase 1s infinite 0.7s; }
+
+/* ============================================
+   MUSIC / JUKEBOX SECTION
+   ============================================ */
+
+.jukebox-section {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a0a15 50%, #0d0d0d 100%);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  padding: 40px 20px;
+  text-align: center;
+  background: #0a0a0a;
+  border-top: 1px solid #222;
+}
+
+.footer-sign {
+  font-family: 'Satisfy', cursive;
+  font-size: 2rem;
+}
+
+/* ============================================
+   SVG NEON GLOW FILTER
+   ============================================ */
+
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .main-sign {
+    font-size: 3rem;
+  }
+
+  .sign-backing {
+    padding: 20px 30px;
+  }
+
+  .signs-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ============================================
+   NEON TUBE SVG STYLES
+   ============================================ */
+
+.neon-svg {
+  filter: url(#neon-glow);
+}
+
+.neon-svg path,
+.neon-svg line,
+.neon-svg circle,
+.neon-svg rect {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Tube thickness variations */
+.tube-thin { stroke-width: 3; }
+.tube-medium { stroke-width: 5; }
+.tube-thick { stroke-width: 8; }
+
+/* ============================================
+   AMBIENT LIGHTING EFFECTS
+   ============================================ */
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ambient-pink {
+  background: #ff6ec7;
+}
+
+.ambient-blue {
+  background: #00fff9;
+}
+
+.ambient-red {
+  background: #ff1744;
+}
+
+/* ============================================
+   WIRE/CABLE DETAILS
+   ============================================ */
+
+.neon-wire {
+  position: absolute;
+  width: 3px;
+  background: #222;
+  border-radius: 2px;
+}
+
+.wire-connector {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  border: 1px solid #444;
+}

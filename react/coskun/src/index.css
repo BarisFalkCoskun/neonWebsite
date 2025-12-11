@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&family=Satisfy&family=Pacifico&family=Sacramento&display=swap');
+
+:root {
+  --neon-pink: #ff6ec7;
+  --neon-pink-dim: #b34d8b;
+  --neon-blue: #00fff9;
+  --neon-blue-dim: #00999480;
+  --neon-red: #ff1744;
+  --neon-red-dim: #b3102f;
+  --neon-yellow: #ffea00;
+  --neon-yellow-dim: #b3a400;
+  --neon-green: #00ff41;
+  --neon-green-dim: #00b32d;
+  --neon-purple: #e040fb;
+  --neon-purple-dim: #9c2caf;
+  --neon-orange: #ff9100;
+  --neon-orange-dim: #b36500;
+  --neon-white: #ffffff;
+  --neon-white-dim: #aaaaaa;
+  --dark-bg: #0d0d0d;
+  --brick-bg: #1a1210;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satisfy', cursive;
+  background: var(--dark-bg);
+  color: white;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Brick wall background texture */
+.brick-wall {
+  background-color: #1a1210;
+  background-image:
+    linear-gradient(to right, #0d0908 1px, transparent 1px),
+    linear-gradient(to bottom, #0d0908 1px, transparent 1px),
+    linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+  background-size: 60px 30px, 60px 30px, 60px 30px;
+  background-position: 0 0, 30px 15px, 0 0;
+}
+
+/* ============================================
+   NEON TUBE TEXT EFFECTS - The Real Deal
+   ============================================ */
+
+/* Base neon tube text - creates the "glass tube" look */
+.neon-tube {
+  position: relative;
+  display: inline-block;
+}
+
+/* Pink Neon Tube */
+.neon-pink {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 35px var(--neon-pink),
+    0 0 40px var(--neon-pink),
+    0 0 50px var(--neon-pink),
+    0 0 75px var(--neon-pink);
+  filter: brightness(1.1);
+}
+
+/* Blue Neon Tube */
+.neon-blue {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue),
+    0 0 35px var(--neon-blue),
+    0 0 40px var(--neon-blue),
+    0 0 50px var(--neon-blue),
+    0 0 75px var(--neon-blue);
+}
+
+/* Red Neon Tube */
+.neon-red {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-red),
+    0 0 20px var(--neon-red),
+    0 0 35px var(--neon-red),
+    0 0 40px var(--neon-red),
+    0 0 50px var(--neon-red),
+    0 0 75px var(--neon-red);
+}
+
+/* Yellow Neon Tube */
+.neon-yellow {
+  color: #fffde7;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fffde7,
+    0 0 10px var(--neon-yellow),
+    0 0 20px var(--neon-yellow),
+    0 0 35px var(--neon-yellow),
+    0 0 40px var(--neon-yellow),
+    0 0 50px var(--neon-yellow),
+    0 0 75px var(--neon-yellow);
+}
+
+/* Green Neon Tube */
+.neon-green {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-green),
+    0 0 20px var(--neon-green),
+    0 0 35px var(--neon-green),
+    0 0 40px var(--neon-green),
+    0 0 50px var(--neon-green),
+    0 0 75px var(--neon-green);
+}
+
+/* Orange Neon Tube */
+.neon-orange {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-orange),
+    0 0 20px var(--neon-orange),
+    0 0 35px var(--neon-orange),
+    0 0 40px var(--neon-orange),
+    0 0 50px var(--neon-orange);
+}
+
+/* Purple Neon Tube */
+.neon-purple {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--neon-purple),
+    0 0 20px var(--neon-purple),
+    0 0 35px var(--neon-purple),
+    0 0 40px var(--neon-purple),
+    0 0 50px var(--neon-purple),
+    0 0 75px var(--neon-purple);
+}
+
+/* White/Clear Neon Tube */
+.neon-white {
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff;
+}
+
+/* ============================================
+   NEON SIGN STATES
+   ============================================ */
+
+/* Tube "off" state - dimmed, no glow */
+.neon-off {
+  color: #333 !important;
+  text-shadow: none !important;
+  opacity: 0.4;
+  filter: grayscale(80%);
+}
+
+/* Tube warming up / dim state */
+.neon-dim {
+  opacity: 0.6;
+  filter: brightness(0.5);
+}
+
+/* ============================================
+   REALISTIC NEON ANIMATIONS
+   ============================================ */
+
+/* Classic neon flicker - like a tube warming up */
+@keyframes neon-flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 1;
+    filter: brightness(1) drop-shadow(0 0 3px currentColor);
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+    filter: brightness(0.4);
+  }
+}
+
+/* Subtle tube hum - slight brightness variation */
+@keyframes tube-hum {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(0.97); }
+}
+
+/* Bad connection flicker - more erratic */
+@keyframes bad-connection {
+  0%, 2%, 4%, 6%, 50%, 52%, 54%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  1%, 3%, 5%, 51%, 53% {
+    opacity: 0.2;
+    filter: brightness(0.3);
+  }
+}
+
+/* Sign turning on sequence */
+@keyframes sign-on {
+  0% { opacity: 0; filter: brightness(0); }
+  10% { opacity: 0.3; filter: brightness(0.3); }
+  20% { opacity: 0.1; filter: brightness(0.1); }
+  30% { opacity: 0.5; filter: brightness(0.5); }
+  40% { opacity: 0.2; filter: brightness(0.2); }
+  50% { opacity: 0.7; filter: brightness(0.7); }
+  60% { opacity: 0.4; filter: brightness(0.4); }
+  70% { opacity: 0.9; filter: brightness(0.9); }
+  80% { opacity: 0.6; filter: brightness(0.6); }
+  90% { opacity: 1; filter: brightness(1); }
+  100% { opacity: 1; filter: brightness(1); }
+}
+
+/* Pulsing glow */
+@keyframes pulse-glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 20px currentColor); }
+  50% { filter: brightness(1.15) drop-shadow(0 0 40px currentColor); }
+}
+
+/* Blink on/off */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Slow blink */
+@keyframes blink-slow {
+  0%, 70% { opacity: 1; filter: brightness(1); }
+  71%, 100% { opacity: 0.3; filter: brightness(0.3); }
+}
+
+/* Animation classes */
+.flicker { animation: neon-flicker 4s infinite; }
+.flicker-fast { animation: neon-flicker 1.5s infinite; }
+.hum { animation: tube-hum 0.1s infinite; }
+.bad-connection { animation: bad-connection 3s infinite; }
+.turn-on { animation: sign-on 2s forwards; }
+.pulse { animation: pulse-glow 2s ease-in-out infinite; }
+.blink { animation: blink 1s infinite; }
+.blink-slow { animation: blink-slow 3s infinite; }
+
+/* Staggered delays for multiple tubes */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.5s; }
+.delay-4 { animation-delay: 0.7s; }
+.delay-5 { animation-delay: 1s; }
+
+/* ============================================
+   NEON TUBE BORDERS & SHAPES
+   ============================================ */
+
+.neon-border {
+  border: 3px solid;
+  border-radius: 5px;
+  position: relative;
+}
+
+.neon-border-pink {
+  border-color: var(--neon-pink);
+  box-shadow:
+    0 0 5px var(--neon-pink),
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 40px var(--neon-pink),
+    inset 0 0 5px var(--neon-pink),
+    inset 0 0 10px var(--neon-pink);
+}
+
+.neon-border-blue {
+  border-color: var(--neon-blue);
+  box-shadow:
+    0 0 5px var(--neon-blue),
+    0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue),
+    0 0 40px var(--neon-blue),
+    inset 0 0 5px var(--neon-blue),
+    inset 0 0 10px var(--neon-blue);
+}
+
+.neon-border-red {
+  border-color: var(--neon-red);
+  box-shadow:
+    0 0 5px var(--neon-red),
+    0 0 10px var(--neon-red),
+    0 0 20px var(--neon-red),
+    0 0 40px var(--neon-red),
+    inset 0 0 5px var(--neon-red);
+}
+
+.neon-border-yellow {
+  border-color: var(--neon-yellow);
+  box-shadow:
+    0 0 5px var(--neon-yellow),
+    0 0 10px var(--neon-yellow),
+    0 0 20px var(--neon-yellow),
+    0 0 40px var(--neon-yellow),
+    inset 0 0 5px var(--neon-yellow);
+}
+
+/* ============================================
+   NEON SIGN MOUNTING HARDWARE
+   ============================================ */
+
+.sign-mount {
+  position: relative;
+}
+
+/* Metal backing plate */
+.sign-backing {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 40px 60px;
+  box-shadow:
+    inset 0 2px 5px rgba(255,255,255,0.1),
+    0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* Mounting screws */
+.sign-screw {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, #666, #222);
+  border-radius: 50%;
+  border: 1px solid #444;
+}
+
+.sign-screw::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+
+.text-center { text-align: center; }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  position: relative;
+}
