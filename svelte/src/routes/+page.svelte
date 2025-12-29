@@ -62,18 +62,28 @@
     ctx.clip();
 
     // Draw the text inside the clipped area
-    // Gradient text
-    const gradient = ctx.createLinearGradient(centerX - textWidth/2, centerY, centerX + textWidth/2, centerY);
-    gradient.addColorStop(0, '#ff6b6b');
-    gradient.addColorStop(0.2, '#feca57');
-    gradient.addColorStop(0.4, '#48dbfb');
-    gradient.addColorStop(0.6, '#ff9ff3');
-    gradient.addColorStop(0.8, '#54a0ff');
-    gradient.addColorStop(1, '#5f27cd');
+    // Animated gradient text - colors shift over time
+    const gradientOffset = time * 0.5;
+    const gradient = ctx.createLinearGradient(
+      centerX - textWidth/2 + Math.sin(time) * 50,
+      centerY + Math.cos(time * 0.7) * 20,
+      centerX + textWidth/2 + Math.sin(time + 1) * 50,
+      centerY + Math.cos(time * 0.7 + 1) * 20
+    );
 
-    // Glow
-    ctx.shadowColor = '#fff';
-    ctx.shadowBlur = 30;
+    // Cycling colors
+    const hueShift = (time * 30) % 360;
+    gradient.addColorStop((0 + gradientOffset) % 1, `hsl(${(0 + hueShift) % 360}, 85%, 65%)`);
+    gradient.addColorStop((0.2 + gradientOffset) % 1, `hsl(${(45 + hueShift) % 360}, 90%, 65%)`);
+    gradient.addColorStop((0.4 + gradientOffset) % 1, `hsl(${(180 + hueShift) % 360}, 85%, 65%)`);
+    gradient.addColorStop((0.6 + gradientOffset) % 1, `hsl(${(300 + hueShift) % 360}, 80%, 70%)`);
+    gradient.addColorStop((0.8 + gradientOffset) % 1, `hsl(${(220 + hueShift) % 360}, 85%, 65%)`);
+    gradient.addColorStop(1, `hsl(${(270 + hueShift) % 360}, 80%, 55%)`);
+
+    // Animated glow
+    const glowHue = (hueShift + 180) % 360;
+    ctx.shadowColor = `hsl(${glowHue}, 80%, 70%)`;
+    ctx.shadowBlur = 30 + Math.sin(time * 3) * 10;
     ctx.fillStyle = gradient;
     ctx.fillText(text, centerX, centerY);
 
@@ -127,16 +137,27 @@
       const centerX = w / 2;
       const centerY = h / 2;
 
-      const gradient = ctx.createLinearGradient(centerX - textWidth/2, centerY, centerX + textWidth/2, centerY);
-      gradient.addColorStop(0, '#ff6b6b');
-      gradient.addColorStop(0.2, '#feca57');
-      gradient.addColorStop(0.4, '#48dbfb');
-      gradient.addColorStop(0.6, '#ff9ff3');
-      gradient.addColorStop(0.8, '#54a0ff');
-      gradient.addColorStop(1, '#5f27cd');
+      // Animated gradient for revealed state
+      const gradientOffset = time * 0.5;
+      const gradient = ctx.createLinearGradient(
+        centerX - textWidth/2 + Math.sin(time) * 50,
+        centerY + Math.cos(time * 0.7) * 20,
+        centerX + textWidth/2 + Math.sin(time + 1) * 50,
+        centerY + Math.cos(time * 0.7 + 1) * 20
+      );
 
-      ctx.shadowColor = '#fff';
-      ctx.shadowBlur = 50 + Math.sin(time * 2) * 10;
+      const hueShift = (time * 30) % 360;
+      gradient.addColorStop((0 + gradientOffset) % 1, `hsl(${(0 + hueShift) % 360}, 85%, 65%)`);
+      gradient.addColorStop((0.2 + gradientOffset) % 1, `hsl(${(45 + hueShift) % 360}, 90%, 65%)`);
+      gradient.addColorStop((0.4 + gradientOffset) % 1, `hsl(${(180 + hueShift) % 360}, 85%, 65%)`);
+      gradient.addColorStop((0.6 + gradientOffset) % 1, `hsl(${(300 + hueShift) % 360}, 80%, 70%)`);
+      gradient.addColorStop((0.8 + gradientOffset) % 1, `hsl(${(220 + hueShift) % 360}, 85%, 65%)`);
+      gradient.addColorStop(1, `hsl(${(270 + hueShift) % 360}, 80%, 55%)`);
+
+      // Pulsing glow that matches current gradient color
+      const glowHue = (hueShift + 180) % 360;
+      ctx.shadowColor = `hsl(${glowHue}, 80%, 70%)`;
+      ctx.shadowBlur = 50 + Math.sin(time * 2) * 20;
       ctx.fillStyle = gradient;
       ctx.fillText(text, centerX, centerY);
 
